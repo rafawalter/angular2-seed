@@ -8,7 +8,12 @@ import { Employee } from '../models/employee.model';
 })
 export class HomeComponent {
   languages = ['English', 'Spanish', 'Other'];
-  model = new Employee('Darla', 'Smith', true, 'W2', 'English');
+  model = new Employee('', '', false, '', 'default');
+  hasPrimaryLanguageError = false;
+
+  validatePrimaryLanguage(value) {
+    this.hasPrimaryLanguageError = value === 'default';
+  }
 
   firstNameToUpperCase(value: string) {
     if (value.length > 0) {
