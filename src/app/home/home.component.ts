@@ -16,6 +16,10 @@ export class HomeComponent {
   constructor(private formPoster: FormPoster) {}
 
   submitForm(form: NgForm) {
+    this.validatePrimaryLanguage(this.model.primaryLanguage);
+    if (this.hasPrimaryLanguageError) {
+      return;
+    }
     this.formPoster.postEmployeeForm(this.model);
   }
 
